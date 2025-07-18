@@ -22,3 +22,10 @@ How to Use
 4. go to http://127.0.0.1:8000
 
 5.Paste any Shopify store URL and click "Extract" to view insights.
+
+
+
+This tool was built during a GenAI internship challenge to extract structured e-commerce intelligence
+without relying on the official Shopify API. Goal: no API keys, no scraping bans, just pure insight.
+Made by @nlecodaa
+DMs open for collaboration or feedback
