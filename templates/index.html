@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopify Brand Extractor</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    h2 { color: #333; }
+    input[type=text] { width: 400px; padding: 8px; }
+    input[type=submit] { padding: 8px 16px; }
+    .section { margin-top: 30px; }
+    pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h2>Shopify Brand Data Extractor</h2>
+  <form action="/extract_brand_data/" method="post">
+    <input type="text" name="website_url" placeholder="Enter Shopify URL (e.g. https://xyz.myshopify.com)" required />
+    <input type="submit" value="Extract">
+  </form>
+
+  {% if data %}
+  <div class="section">
+    <h3>Title:</h3><p>{{ data['Title'] }}</p>
+    <h3>Meta Description:</h3><p>{{ data['Meta Description'] }}</p>
+    <h3>Emails:</h3><pre>{{ data['Email(s)'] }}</pre>
+    <h3>Phones:</h3><pre>{{ data['Phone(s)'] }}</pre>
+    <h3>Social Links:</h3><pre>{{ data['Social Handles'] }}</pre>
+    <h3>Important Links:</h3><pre>{{ data['Important Links'] }}</pre>
+    <h3>Hero Products ({{ data['Hero Products Count'] }}):</h3><pre>{{ data['Hero Products'] }}</pre>
+    <h3>Full Product Catalog ({{ data['Full Catalog Count'] }}):</h3><pre>{{ data['Full Product Catalog'] }}</pre>
+    <h3>Brand FAQs:</h3><pre>{{ data['Brand FAQs'] }}</pre>
+  </div>
+  {% endif %}
+
+  {% if error %}
+  <p style="color:red;">Error: {{ error }}</p>
+  {% endif %}
+</body>
+</html>
